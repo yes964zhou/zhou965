@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+
+int zhishu(int num) {
+	if (num <= 1) {
+		return 0;
+	}
+	for (int i = 2; i * i <= num; i++) {
+
+
+		if (num % i == 0) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main() {
+	int L;
+	scanf("%d", &L);
+	int sum = 0;
+	int count = 0;
+	int num = 2;
+	while (1) {
+		if (zhishu(num)) {
+			if (sum + num <= L) {
+				sum = sum + num;
+				printf("%d\n", num);
+				count++;
+			}
+			else {
+				break;
+			}
+		}
+		num++;
+	}
+	printf("%d\n", count);
+	return 0;
+}
